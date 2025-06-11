@@ -1100,9 +1100,10 @@ class RPDO implements Driver
 				$code( $this->pdo->getAttribute( \PDO::ATTR_SERVER_VERSION ) );
 			}
 		} catch ( \PDOException $exception ) {
+			var_dump( $exception->getMessage() );
 			$matches = array();
 			$dbname  = ( preg_match( '/dbname=(\w+)/', $this->dsn, $matches ) ) ? $matches[1] : '?';
-			throw new \PDOException( 'Could not connect to database (' . $dbname . ').', $exception->getCode() );
+			throw new \PDOException( 'Could not connect to databasexxx (' . $dbname . ').', $exception->getCode() );
 		}
 	}
 
